@@ -44,7 +44,6 @@ class NegativeTextAnalyzer extends KeywordAnalyzer implements TextAnalyzer {
     protected Label getLabel() {
         return Label.NEGATIVE_TEXT;
     }
-
 }
 
 class TooLongTextAnalyzer implements TextAnalyzer {
