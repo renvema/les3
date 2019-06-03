@@ -10,6 +10,7 @@ public final class ComplexNumber {
         System.out.println(a.hashCode());
         System.out.println(b.hashCode());
     }
+
     public ComplexNumber(double re, double im) {
         this.re = re;
         this.im = im;
@@ -22,22 +23,24 @@ public final class ComplexNumber {
     public double getIm() {
         return im;
     }
+
     @Override
-    public boolean equals(Object obj){
-        if (this== obj) return true;
-        if (obj instanceof ComplexNumber){
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof ComplexNumber) {
             ComplexNumber numberObj = (ComplexNumber) obj;
-            if (this.re !=numberObj.re) return false;
-            if (this.im !=numberObj.im) return false;
+            if (this.re != numberObj.re) return false;
+            if (this.im != numberObj.im) return false;
             return true;
         }
         return false;
     }
+
+
     @Override
     public int hashCode() {
-        int result = 17;
-        long longBits = Double.doubleToLongBits(re*im);
-                result = 31 * result + (int)(longBits - (longBits >>> 16));
-        return result;
+        return Double.hashCode(re) * 19 - Double.hashCode(im) + 17;
     }
+
+
 }
